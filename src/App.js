@@ -13,7 +13,7 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <BrowserRouter>
+        <BrowserRouter basename="/formproject" >
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route path="formClass" element={<FormClass />} />
