@@ -1,7 +1,5 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
-// import SubmitButton from "./navigationButton/SubmitButton";
-// import './Form.css'
 export class FormClass extends Component {
   constructor() {
     super();

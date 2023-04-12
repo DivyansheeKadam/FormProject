@@ -1,4 +1,3 @@
-// import { add_Data } from "../Redux/Type";
 const initialState={
     empData: [
         {

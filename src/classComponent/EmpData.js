@@ -38,7 +38,6 @@ export class EmpData extends Component {
 
   //Edit data
   handleEdit = (id, data) => {
-    // console.log(id)
     this.setState.editData = this.state.employe.filter((data) => {
       return id === data.id;
     });

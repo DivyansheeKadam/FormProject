@@ -1,6 +1,4 @@
 import { Component } from "react";
-import { Link } from "react-router-dom";
-import SubmitButton from "./navigationButton/SubmitButton";
 export class EmpEdit extends Component {
   constructor(props) {
     super(props);

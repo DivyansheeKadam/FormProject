@@ -1,5 +1,3 @@
-// import axios from "axios";
-// import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Show.css";
@@ -7,19 +5,6 @@ const ShowFunction = () => {
   const dispatch = useDispatch();
   const empData = useSelector((state) => state.reducer.empData);
   console.warn("showData", empData);
-
-  // const [list, setList]=useState([])
-  //       useEffect(()=>{
-  //         `axios.get("http://localhost:3000/users")
-  //         .then(result=>setList(result.data))
-  //         .catch(err=>setList(err));`
-  //       })
-
-  // const handleDelete=(id)=>{
-  // axios.delete(`http://localhost:3000/users/${id}`)
-  // .then(result=> alert(result.data + "Data is deleting"))
-  // .catch(err=>setList(err));
-  // }
   return (
     <div className="tableContaint">
       <table className="tableData">
@@ -42,8 +27,8 @@ const ShowFunction = () => {
             <td>{data.mobno}</td>
             <td>{data.address}</td>
             <td>
-              <Link to="/functionEditData" state={data}>
-                <button className="btn">Edit</button>
+                <Link to="/functionEditData" state={data}>
+                <button className="btn" >Edit</button>
               </Link>
             </td>
             <td>
@@ -56,9 +41,11 @@ const ShowFunction = () => {
                 Delete
               </button>
             </td>
+
           </tr>
         ))}
       </table>
+
     </div>
   );
 };

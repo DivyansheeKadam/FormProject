@@ -40,3 +40,7 @@ td {
   background-color: white;
   color: #8282f8;
 }
+
+.displayedit{
+  display: none;
+}

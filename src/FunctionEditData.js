@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Form.css";
@@ -9,35 +8,21 @@ const FunctionEditData = () => {
   let data = useLocation();
   const navigate = useNavigate();
 
-  const [id, setId] = useState(data.state.id);
-  const [name, setName] = useState(data.state.name);
-  const [email, setEmail] = useState(data.state.email);
-  const [mobno, setMobno] = useState(data.state.mobno);
-  const [address, setAddress] = useState(data.state.address);
+  const [allData, setAllData] = useState({
+    id: data.state.id,
+    name: data.state.name,
+    email: data.state.email,
+    mobno: data.state.mobno,
+    address: data.state.address,
+  });
 
   const hendleSubmitform = (e) => {
     e.preventDefault();
-    const newEmpData = {
-      id: id,
-      name: name,
-      email: email,
-      mobno: mobno,
-      address: address,
-    };
-    dispatch({ type: "edit_Data", payload: newEmpData });
+    console.log(allData);
+
+    dispatch({ type: "edit_Data", payload: allData });
     navigate("/showfunction");
   };
-
-  // const hendleSubmitform=(e)=>{
-  //     e.preventDefault()
-  //     axios.put(`http://localhost:3000/users/${id}`, {id, name, email, mobno, address})
-  //     .then((result)=> {
-  //         alert("data updating")
-  //         })
-  
-  //     .catch(err=>console.log(err));
-  // }
-
   return (
     <div className="contain-form">
       <form>
@@ -48,8 +33,8 @@ const FunctionEditData = () => {
               <input
                 type="text"
                 placeholder="id"
-                value={id}
-                onChange={(e) => setId(e.target.value)}
+                value={allData.id}
+                onChange={(e) => setAllData({ ...allData, id: e.target.value })}
               />
             </label>
           </tr>
@@ -59,20 +44,23 @@ const FunctionEditData = () => {
               <input
                 type="text"
                 placeholder="Full Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={allData.name}
+                onChange={(e) =>
+                  setAllData({ ...allData, name: e.target.value })
+                }
               />
             </label>
           </tr>
           <tr>
             <label>
-              {" "}
               Email
               <input
                 type="email"
                 placeholder="@gmail.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={allData.email}
+                onChange={(e) =>
+                  setAllData({ ...allData, email: e.target.value })
+                }
               />
             </label>
           </tr>
@@ -82,20 +70,23 @@ const FunctionEditData = () => {
               <input
                 type="text"
                 placeholder="Mobno."
-                value={mobno}
-                onChange={(e) => setMobno(e.target.value)}
+                value={allData.mobno}
+                onChange={(e) =>
+                  setAllData({ ...allData, mobno: e.target.value })
+                }
               />
             </label>
           </tr>
           <tr>
             <label>
-              {" "}
               Address
               <input
                 type="address"
                 placeholder="Address"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
+                value={allData.address}
+                onChange={(e) =>
+                  setAllData({ ...allData, address: e.target.value })
+                }
               />
             </label>
           </tr>
