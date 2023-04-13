@@ -1,27 +1,24 @@
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import "./Form.css";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
-const FunctionEditData = () => {
-  const dispatch = useDispatch();
-  let data = useLocation();
+import "../css/Form.css";
+const FunctionForm = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [allData, setAllData] = useState({
-    id: data.state.id,
-    name: data.state.name,
-    email: data.state.email,
-    mobno: data.state.mobno,
-    address: data.state.address,
+    id: null,
+    name: "",
+    email: "",
+    mobno: "",
+    address: "",
   });
 
   const hendleSubmitform = (e) => {
     e.preventDefault();
     console.log(allData);
-
-    dispatch({ type: "edit_Data", payload: allData });
-    navigate("/showfunction");
+    dispatch({ type: "add_Data", payload: allData });
+    navigate("/showFunction");
   };
   return (
     <div className="contain-form">
@@ -72,7 +69,7 @@ const FunctionEditData = () => {
                 placeholder="Mobno."
                 value={allData.mobno}
                 onChange={(e) =>
-                  setAllData({ ...allData,  mobno: e.target.value })
+                  setAllData({ ...allData, mobno: e.target.value })
                 }
               />
             </label>
@@ -85,19 +82,22 @@ const FunctionEditData = () => {
                 placeholder="Address"
                 value={allData.address}
                 onChange={(e) =>
-                  setAllData({ ...allData,  address: e.target.value })
+                  setAllData({ ...allData, address: e.target.value })
                 }
               />
             </label>
           </tr>
           <tr>
-            <button type="submit" onClick={ hendleSubmitform }>
+            <button type="submit" className="btn" onClick={hendleSubmitform}>
               Submit :-
             </button>
+          </tr>
+          <tr>
+            <Link to="/showFunction">Show Data</Link>
           </tr>
         </table>
       </form>
     </div>
   );
 };
-export default FunctionEditData;
+export default FunctionForm;

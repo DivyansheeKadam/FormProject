@@ -1,7 +1,7 @@
 import { Component } from "react";
 import EditButton from "./navigationButton/EditButton";
 import EmpEdit from "./EmpEdit";
-export class EmpData extends Component {
+ class EmpData extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -93,3 +93,4 @@ export class EmpData extends Component {
     }
   }
 }
+export default EmpData;

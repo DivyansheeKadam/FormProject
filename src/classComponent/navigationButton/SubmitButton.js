@@ -8,7 +8,7 @@ const SubmitButton = (props) => {
         type="submit"
         className="btn"
         id="submitBTN"
-        onClick={() => props.hendleSubmitform(navigate("/empdata"))}
+        onClick={() => props.hendleSubmitform(navigate("/empData"))}
       >
         Submit
       </button>

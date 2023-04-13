@@ -1,14 +1,13 @@
 import { Provider } from "react-redux";
-import store from "./Redux/Store";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
-import { EmpData } from "./classComponent/EmpData";
-import EmpEdit from "./classComponent/EmpEdit";
+import store from "./Redux/Store";
 import { FormClass } from "./classComponent/FormClass";
-import FunctionEditData from "./FunctionEditData";
-import FunctionForm from "./FunctionForm";
-import Layout from "./Layout";
-import ShowFunction from "./ShowFunction";
+import EmpData from "./classComponent/EmpData";
+import EmpEdit from "./classComponent/EmpEdit";
+import FunctionEditData from "./functionComponent/FunctionEditData";
+import FunctionForm from "./functionComponent/FunctionForm";
+import Layout from "./Routing/Layout";
+import ShowFunction from "./functionComponent/ShowFunction";
 function App() {
   return (
     <Provider store={store}>
@@ -17,8 +16,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route path="formClass" element={<FormClass />} />
-              <Route path="empdata" element={<EmpData />} />
+              <Route path="empData" element={<EmpData/>}/>
               <Route path="empEdit" element={<EmpEdit />} />
+        
               {/* Function From Routing */}
               <Route path="functionForm" element={<FunctionForm />} />
               <Route path="showfunction" element={<ShowFunction />} />
