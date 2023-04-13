@@ -26,7 +26,7 @@ const FunctionForm = () => {
         <table>
           <tr>
             <label>
-              Id
+              Id :-
               <input
                 type="text"
                 placeholder="id"
@@ -37,7 +37,7 @@ const FunctionForm = () => {
           </tr>
           <tr>
             <label>
-              Full Name
+              Full Name :-
               <input
                 type="text"
                 placeholder="Full Name"
@@ -50,7 +50,7 @@ const FunctionForm = () => {
           </tr>
           <tr>
             <label>
-              Email
+              Email :-
               <input
                 type="email"
                 placeholder="@gmail.com"
@@ -63,7 +63,7 @@ const FunctionForm = () => {
           </tr>
           <tr>
             <label>
-              Mob no.
+              Mob no :-
               <input
                 type="text"
                 placeholder="Mobno."
@@ -76,7 +76,7 @@ const FunctionForm = () => {
           </tr>
           <tr>
             <label>
-              Address
+              Address :-
               <input
                 type="address"
                 placeholder="Address"
@@ -89,7 +89,7 @@ const FunctionForm = () => {
           </tr>
           <tr>
             <button type="submit" className="btn" onClick={hendleSubmitform}>
-              Submit
+              Submit :-
             </button>
           </tr>
           <tr>

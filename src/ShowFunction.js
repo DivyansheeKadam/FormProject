@@ -1,12 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Show.css";
-import { useState } from "react";
 const ShowFunction = () => {
   const dispatch = useDispatch();
-  const [editData, setEditData]= useState([])
   const empData = useSelector((state) => state.reducer.empData);
-  console.warn("showData", empData);
+  console.warn("show_Data", empData);
   
   return (
     <div className="tableContaint">
@@ -29,7 +27,7 @@ const ShowFunction = () => {
             <td>{data.address}</td>
             <td>
                 <Link to="/functionEditData" state={data}>
-                <button className="btn" >Edit</button>
+                <button className="btn"> Edit </button>
               </Link>
             </td>
             <td>
@@ -45,7 +43,6 @@ const ShowFunction = () => {
           </tr>
         ))}
       </table>
-
     </div>
   );
 };

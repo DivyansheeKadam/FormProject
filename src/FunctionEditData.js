@@ -29,7 +29,7 @@ const FunctionEditData = () => {
         <table>
           <tr>
             <label>
-              Id
+              Id :-
               <input
                 type="text"
                 placeholder="id"
@@ -40,7 +40,7 @@ const FunctionEditData = () => {
           </tr>
           <tr>
             <label>
-              Full Name
+              Full Name :-
               <input
                 type="text"
                 placeholder="Full Name"
@@ -53,7 +53,7 @@ const FunctionEditData = () => {
           </tr>
           <tr>
             <label>
-              Email
+              Email :-
               <input
                 type="email"
                 placeholder="@gmail.com"
@@ -66,33 +66,33 @@ const FunctionEditData = () => {
           </tr>
           <tr>
             <label>
-              Mob no.
+              Mob no :-
               <input
                 type="text"
                 placeholder="Mobno."
                 value={allData.mobno}
                 onChange={(e) =>
-                  setAllData({ ...allData, mobno: e.target.value })
+                  setAllData({ ...allData,  mobno: e.target.value })
                 }
               />
             </label>
           </tr>
           <tr>
             <label>
-              Address
+              Address :-
               <input
                 type="address"
                 placeholder="Address"
                 value={allData.address}
                 onChange={(e) =>
-                  setAllData({ ...allData, address: e.target.value })
+                  setAllData({ ...allData,  address: e.target.value })
                 }
               />
             </label>
           </tr>
           <tr>
-            <button type="submit" onClick={hendleSubmitform}>
-              Submit
+            <button type="submit" onClick={ hendleSubmitform }>
+              Submit :-
             </button>
           </tr>
         </table>
