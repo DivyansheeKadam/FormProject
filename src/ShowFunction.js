@@ -1,23 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Show.css";
+import { useState } from "react";
 const ShowFunction = () => {
   const dispatch = useDispatch();
+  const [editData, setEditData]= useState([])
   const empData = useSelector((state) => state.reducer.empData);
   console.warn("showData", empData);
+  
   return (
     <div className="tableContaint">
       <table className="tableData">
         <tr className="trContaint">
-          <b>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Email</td>
-            <td>Phone No.</td>
-            <td>Address</td>
-            <td></td>
-            <td></td>
-          </b>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone No.</th>
+            <th>Address</th>
+            <th></th>
+            <th></th>
         </tr>
         {empData.map((data, i) => (
           <tr key={i} className="trContaint">
@@ -41,7 +42,6 @@ const ShowFunction = () => {
                 Delete
               </button>
             </td>
-
           </tr>
         ))}
       </table>

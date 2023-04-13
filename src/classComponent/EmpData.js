@@ -55,13 +55,13 @@ export class EmpData extends Component {
             <form>
               <table className="tableData">
                 <tr className="trContaint">
-                  <td>Id</td>
-                  <td>Name</td>
-                  <td>Email</td>
-                  <td>Phone No.</td>
-                  <td>Address</td>
-                  <td></td>
-                  <td></td>
+                <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone No.</th>
+            <th>Address</th>
+            <th></th>
+            <th></th>
                 </tr>
                 {employe.map((employe, i) => (
                   <tr key={i} className="trContaint">
