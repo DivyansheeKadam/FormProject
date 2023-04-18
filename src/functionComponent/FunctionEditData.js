@@ -1,25 +1,27 @@
-import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import "../css/Form.css";
-
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const FunctionEditData = () => {
   const dispatch = useDispatch();
-  let data = useLocation();
+  const editId = useParams();
   const navigate = useNavigate();
-
+  const empData = useSelector((state) => state.reducer.empData);
   const [allData, setAllData] = useState({
-    id: data.state.id,
-    name: data.state.name,
-    email: data.state.email,
-    mobno: data.state.mobno,
-    address: data.state.address,
+    id: "",
+    name: "",
+    email: "",
+    mobno: "",
+    address: "",
   });
+  useEffect(() => {
+    const [editData] = empData.filter((data) => editId.id == data.id);
+    setAllData({ ...allData, ...editData });
+  }, [setAllData]);
 
   const hendleSubmitform = (e) => {
     e.preventDefault();
-    console.log(allData);
 
     dispatch({ type: "edit_Data", payload: allData });
     navigate("/showfunction");
@@ -73,7 +75,7 @@ const FunctionEditData = () => {
                 placeholder="Mobno."
                 value={allData.mobno}
                 onChange={(e) =>
-                  setAllData({ ...allData,  mobno: e.target.value })
+                  setAllData({ ...allData, mobno: e.target.value })
                 }
               />
             </label>
@@ -86,13 +88,13 @@ const FunctionEditData = () => {
                 placeholder="Address"
                 value={allData.address}
                 onChange={(e) =>
-                  setAllData({ ...allData,  address: e.target.value })
+                  setAllData({ ...allData, address: e.target.value })
                 }
               />
             </label>
           </tr>
           <tr>
-            <button type="submit" onClick={ hendleSubmitform }>
+            <button type="submit" onClick={hendleSubmitform}>
               Submit
             </button>
           </tr>

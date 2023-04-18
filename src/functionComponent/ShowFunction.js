@@ -1,26 +1,26 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../css/Show.css";
-import { useState } from "react";
-// import FunctionEditData from "./FunctionEditData";
 
 const ShowFunction = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [editData, setEditData]= useState([])
   const empData = useSelector((state) => state.reducer.empData);
-  console.warn("showData", empData);
-  
+  const handleEdit=(id)=>{
+    navigate(`/functionEditData/${id}`)
+  }
+
   return (
     <div className="tableContaint">
       <table className="tableData">
         <tr className="trContaint">
-            <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone No.</th>
-            <th>Address</th>
-            <th></th>
-            <th></th>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone No.</th>
+          <th>Address</th>
+          <th></th>
+          <th></th>
         </tr>
         {empData.map((data, i) => (
           <tr key={i} className="trContaint">
@@ -30,17 +30,15 @@ const ShowFunction = () => {
             <td>{data.mobno}</td>
             <td>{data.address}</td>
             <td>
-                <Link to="/functionEditData" state={data}>
-                <button className="btn" >Edit</button>
-              </Link>
+              <button
+                className="btn"
+                onClick={() => {
+                  handleEdit(data.id)
+                }}
+              >
+                update
+              </button>
             </td>
-            {/* <td>
-            <button className="btn" onClick={()=>{setEditData( empData.filter((fdata)=>{
-              return data.id === fdata.id
-            }))
-            console.log(editData)}}>update</button>
-
-            </td> */}
             <td>
               <button
                 className="btn"
@@ -54,10 +52,6 @@ const ShowFunction = () => {
           </tr>
         ))}
       </table>
-                <div className="displayedit">
-                    {/* <FunctionEditData editData={editData}/> */}
-                </div>
-
     </div>
   );
 };

@@ -1,6 +1,4 @@
-import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import store from "./Redux/Store";
 import { FormClass } from "./classComponent/FormClass";
 import EmpData from "./classComponent/EmpData";
 import EmpEdit from "./classComponent/EmpEdit";
@@ -10,7 +8,6 @@ import Layout from "./Routing/Layout";
 import ShowFunction from "./functionComponent/ShowFunction";
 function App() {
   return (
-    <Provider store={store}>
       <div className="App">
         <BrowserRouter basename="/formproject" >
           <Routes>
@@ -22,12 +19,11 @@ function App() {
               {/* Function From Routing */}
               <Route path="functionForm" element={<FunctionForm />} />
               <Route path="showfunction" element={<ShowFunction />} />
-              <Route path="functionEditData" element={<FunctionEditData />} />
+              <Route path="functionEditData/:id" element={<FunctionEditData />} />
             </Route>
           </Routes>
         </BrowserRouter>
       </div>
-    </Provider>
   );
 }
 
