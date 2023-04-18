@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "../css/Form.css";
+import "../Form.css";
 import { useDispatch, useSelector } from "react-redux";
 
 const FunctionEditData = () => {
@@ -16,15 +16,15 @@ const FunctionEditData = () => {
     address: "",
   });
   useEffect(() => {
-    const [editData] = empData.filter((data) => editId.id == data.id);
+    const [editData] = empData.filter((data) => editId.id === data.id);
     setAllData({ ...allData, ...editData });
   }, [setAllData]);
 
   const hendleSubmitform = (e) => {
     e.preventDefault();
 
-    dispatch({ type: "edit_Data", payload: allData });
-    navigate("/showfunction");
+    dispatch({ type: "editData", payload: allData });
+    navigate("/showAll");
   };
   return (
     <div className="contain-form">

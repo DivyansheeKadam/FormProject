@@ -1,29 +1,27 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { FormClass } from "./classComponent/FormClass";
-import EmpData from "./classComponent/EmpData";
-import EmpEdit from "./classComponent/EmpEdit";
-import FunctionEditData from "./functionComponent/FunctionEditData";
-import FunctionForm from "./functionComponent/FunctionForm";
+import { Route, Routes } from "react-router-dom";
 import Layout from "./Routing/Layout";
-import ShowFunction from "./functionComponent/ShowFunction";
+import { FormClass } from "./Form/classComponent/FormClass";
+import EmpData from "./Form/classComponent/EmpData";
+import EmpEdit from "./Form/classComponent/EmpEdit";
+import FunctionEditData from "./Form/functionComponent/FunctionEditData";
+import FunctionForm from "./Form/functionComponent/FunctionForm";
+import ShowFunction from "./Form/functionComponent/ShowFunction";
 function App() {
   return (
-      <div className="App">
-        <BrowserRouter basename="/formproject" >
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route path="formClass" element={<FormClass />} />
-              <Route path="empData" element={<EmpData/>}/>
-              <Route path="empEdit" element={<EmpEdit />} />
-        
-              {/* Function From Routing */}
-              <Route path="functionForm" element={<FunctionForm />} />
-              <Route path="showfunction" element={<ShowFunction />} />
-              <Route path="functionEditData/:id" element={<FunctionEditData />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </div>
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="formC" element={<FormClass />} />
+          <Route path="showAllC" element={<EmpData />} />
+          <Route path="editC" element={<EmpEdit />} />
+
+          {/* Function From Routing */}
+          <Route path="form" element={<FunctionForm />} />
+          <Route path="showAll" element={<ShowFunction />} />
+          <Route path="edit/:id" element={<FunctionEditData />} />
+        </Route>
+      </Routes>
+    </div>
   );
 }
 

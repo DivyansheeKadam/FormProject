@@ -6,9 +6,9 @@ const SubmitButton = (props) => {
     <>
       <button
         type="submit"
-        className="btn"
+        className="tableContaint_btn"
         id="submitBTN"
-        onClick={() => props.hendleSubmitform(navigate("/empData"))}
+        onClick={() => props.hendleSubmitform(navigate("/showAllC"))}
       >
         Submit
       </button>

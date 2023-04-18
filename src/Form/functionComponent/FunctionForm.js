@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import "../css/Form.css";
+import "../Form.css";
+
 const FunctionForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const [allData, setAllData] = useState({
     id: null,
     name: "",
@@ -17,8 +17,8 @@ const FunctionForm = () => {
   const hendleSubmitform = (e) => {
     e.preventDefault();
     console.log(allData);
-    dispatch({ type: "add_Data", payload: allData });
-    navigate("/showFunction");
+    dispatch({ type: "addData", payload: allData });
+    navigate("/showAll");
   };
   return (
     <div className="contain-form">
@@ -91,9 +91,6 @@ const FunctionForm = () => {
             <button type="submit" className="btn" onClick={hendleSubmitform}>
               Submit
             </button>
-          </tr>
-          <tr>
-            <Link to="/showFunction">Show Data</Link>
           </tr>
         </table>
       </form>

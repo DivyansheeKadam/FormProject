@@ -1,28 +1,19 @@
 import { Component } from "react";
-export class EmpEdit extends Component {
-  constructor(props) {
-    super(props);
+import { Link } from "react-router-dom";
+import "../Form.css";
+
+export class FormClass extends Component {
+  constructor() {
+    super();
     this.state = {
-      error: null,
-      employe: this.props.employe,
       id: null,
       name: "",
       email: "",
       mobno: "",
       address: "",
+      newList: "",
     };
-    console.log(this.props.editData);
   }
-  //   handleEdit=()=>{
-  //   this.props.employe.map((data)=>{
-  //     this.setState({id: data.id,
-  //           name: data.name,
-  //           email: data.email,
-  //           mobno: data.mobno,
-  //           address: data.address})
-  //         })
-  // }
-
   hendleSubmitform = (e) => {
     e.preventDefault();
     const newLists = {
@@ -32,28 +23,26 @@ export class EmpEdit extends Component {
       mobno: this.state.mobno,
       address: this.state.address,
     };
-    console.warn(newLists);
-
-    fetch(`http://localhost:3000/users/${this.state.id}`, {
-      method: "PUT",
+    console.log(newLists);
+    fetch("http://localhost:3000/users", {
+      method: "POST",
       headers: {
-        Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newLists),
     })
+      .then((resp) => resp.json())
       .then((result) => {
         alert("Result", result);
-        window.location = "/empdata";
+        window.location = "/showAllC";
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
   render() {
     return (
-      <>
+      <div className="contain-form">
         <form>
           <table>
             <tr>
@@ -62,7 +51,6 @@ export class EmpEdit extends Component {
                 <input
                   type="text"
                   placeholder="id"
-                  value={this.state.id}
                   onChange={(e) => {
                     this.setState({ id: e.target.value });
                   }}
@@ -75,7 +63,6 @@ export class EmpEdit extends Component {
                 <input
                   type="text"
                   placeholder="Full Name"
-                  value={this.state.name}
                   onChange={(e) => {
                     this.setState({ name: e.target.value });
                   }}
@@ -88,7 +75,6 @@ export class EmpEdit extends Component {
                 <input
                   type="email"
                   placeholder="@gmail.com"
-                  value={this.state.email}
                   onChange={(e) => {
                     this.setState({ email: e.target.value });
                   }}
@@ -101,7 +87,6 @@ export class EmpEdit extends Component {
                 <input
                   type="text"
                   placeholder="Mobno."
-                  value={this.state.mobno}
                   onChange={(e) => {
                     this.setState({ mobno: e.target.value });
                   }}
@@ -114,7 +99,6 @@ export class EmpEdit extends Component {
                 <input
                   type="address"
                   placeholder="Address"
-                  value={this.state.address}
                   onChange={(e) => {
                     this.setState({ address: e.target.value });
                   }}
@@ -130,12 +114,15 @@ export class EmpEdit extends Component {
               >
                 Submit
               </button>
-              {/* <SubmitButton hendleSubmitform={this.hendleSubmitform}/> */}
+            </tr>
+            <tr>
+              <Link className="link" to="/showAllC">
+                Show Data
+              </Link>
             </tr>
           </table>
         </form>
-      </>
+      </div>
     );
   }
 }
-export default EmpEdit;
