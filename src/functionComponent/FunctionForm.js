@@ -89,7 +89,7 @@ const FunctionForm = () => {
           </tr>
           <tr>
             <button type="submit" className="btn" onClick={hendleSubmitform}>
-              Submit :-
+              Submit
             </button>
           </tr>
           <tr>
