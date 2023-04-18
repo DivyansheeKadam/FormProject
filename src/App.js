@@ -22,7 +22,7 @@ function App() {
               {/* Function From Routing */}
               <Route path="functionForm" element={<FunctionForm />} />
               <Route path="showfunction" element={<ShowFunction />} />
-              <Route path="functionEditData" element={<FunctionEditData />} />
+              <Route path="functionEditData/:id" element={<FunctionEditData />} />
             </Route>
           </Routes>
         </BrowserRouter>
