@@ -1,7 +1,8 @@
 import { Component } from "react";
 import EditButton from "./navigationButton/EditButton";
 import EmpEdit from "./EmpEdit";
- class EmpData extends Component {
+
+class EmpData extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,18 +54,18 @@ import EmpEdit from "./EmpEdit";
         <>
           <div className="tableContaint">
             <form>
-              <table className="tableData">
+              <table className="tableContaint_table">
                 <tr className="trContaint">
-                <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone No.</th>
-            <th>Address</th>
-            <th></th>
-            <th></th>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone No.</th>
+                  <th>Address</th>
+                  <th></th>
+                  <th></th>
                 </tr>
                 {employe.map((employe, i) => (
-                  <tr key={i} className="trContaint">
+                  <tr key={i} className="tableContaint_tr">
                     <td>{employe.id}</td>
                     <td>{employe.name}</td>
                     <td>{employe.email}</td>
@@ -75,7 +76,7 @@ import EmpEdit from "./EmpEdit";
                     </td>
                     <td>
                       <button
-                        className="btn"
+                        className="tableContaint_btn"
                         onClick={() => this.handleDelete(employe.id)}
                       >
                         Delete

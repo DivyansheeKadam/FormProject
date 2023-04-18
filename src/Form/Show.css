@@ -5,14 +5,14 @@
   flex-direction: column;
 }
 
-.tableData {
+.tableContaint_table {
   width: auto;
   background-color: #8282f8;
   padding: 30px;
   margin: 10px;
 }
 
-.trContaint {
+.tableContaint_tr {
   width: auto;
   height: 45px;
   align-items: center;
@@ -22,24 +22,21 @@
   font-size: 14px;
 }
 
-td, th{
+td,
+th {
   width: 100px;
   padding: 20px;
   text-align: left;
 }
 
-.btn {
+.tableContaint_btn {
   width: 100px;
   padding: 5px;
   border-radius: 10px;
   background-color: antiquewhite;
 }
 
-.btn:hover {
+.tableContaint_btn:hover {
   background-color: white;
   color: #8282f8;
-}
-
-.displayedit{
-  display: none;
 }

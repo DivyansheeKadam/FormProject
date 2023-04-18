@@ -1,15 +1,29 @@
-import { Component } from "react";
-import { Link } from "react-router-dom";
-import '../css/Header.css'
+import { useNavigate } from "react-router-dom";
+import "./Header.css";
 
-class Header extends Component{
-    render(){
-        return(<div className="header">
-                <nav>
-                <Link className="link" to="/formClass"> Class (Form)</Link>
-                <Link className="link" to="/functionForm"> Function (Form)</Link>
-                </nav>
-    </div>)
-    }
-}
+const Header = () => {
+  const navigate = useNavigate();
+  return (
+    <div className="header">
+      <nav>
+        <button
+          className="header_link"
+          onClick={() => {
+            navigate("/formC");
+          }}
+        >
+          Class (Form)
+        </button>
+        <button
+          className="header_link"
+          onClick={() => {
+            navigate("/form");
+          }}
+        >
+          Function (Form)
+        </button>
+      </nav>
+    </div>
+  );
+};
 export default Header;
